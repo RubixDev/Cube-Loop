@@ -8,7 +8,7 @@ Installation (.zip)
 3. Run Cube Loop.exe
 4. Enjoy playing the game
 
-Installation (installer)
+Installation (Installer)
 ------------------------
 1. Download the latest release of Cube Loop as an installer.exe
 2. Run the downloaded file
