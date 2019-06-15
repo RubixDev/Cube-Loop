@@ -1713,11 +1713,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7c31366aad18bc4a9d1854768792aa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefab: {fileID: 2820588419931716948, guid: 01f8d48c573ddac4ebd77b6cd01f95f8, type: 3}
+  obstacle: {fileID: 2820588419931716948, guid: 01f8d48c573ddac4ebd77b6cd01f95f8,
+    type: 3}
+  bluePowerUp: {fileID: 6780675445981174055, guid: 6fa6e9feee9193d48a10a929f9b73c52,
+    type: 3}
   seconds: 1
   movement: {fileID: 2045599262}
   zPos: 100
   minObstaclesPerRow: 4
+  radius: 0.4
 --- !u!1 &1874146817
 GameObject:
   m_ObjectHideFlags: 0
