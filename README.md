@@ -2,7 +2,7 @@
 
 Installation (.zip)
 -------------------
-1. Download the [latest release]() of Cube Loop as a .zip file
+1. Download the [latest release](https://github.com/RubixDev/Cube-Loop/releases) of Cube Loop as a .zip file
 2. Unzip the file
 3. Run Cube Loop.exe
 4. Enjoy playing the game
