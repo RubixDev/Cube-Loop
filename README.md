@@ -1,4 +1,5 @@
 # Cube-Loop
+In Cube Loop you control a red cube and have to dodge the randomly generated obstacles.
 
 Installation (.zip)
 -------------------
