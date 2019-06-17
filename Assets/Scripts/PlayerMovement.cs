@@ -7,7 +7,7 @@ public class PlayerMovement : MonoBehaviour
     public float stopPos = 0.25f;
     public GameManager manager;
 
-    void FixedUpdate()
+    private void FixedUpdate()
     {
         if (Input.GetButton("Horizontal") && Input.GetAxisRaw("Horizontal") > 0)
         {

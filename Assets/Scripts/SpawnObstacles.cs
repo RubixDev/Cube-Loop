@@ -4,19 +4,22 @@ using Random = UnityEngine.Random;
 
 public class SpawnObstacles : MonoBehaviour
 {
-    public GameObject prefab;
+    public GameObject obstacle;
+    public GameObject bluePowerUp;
     public float seconds = 4f;
     public PlayerMovement movement;
     public float zPos = 100f;
     public int minObstaclesPerRow = 4;
+    public float radius = 1f;
+    public int rarity;
 
-    void Start()
+    private void Start()
     {
-        StartCoroutine(Wait());
+        StartCoroutine(Loop());
     }
 
-    
-    IEnumerator Wait()
+
+    private IEnumerator Loop()
     {
         while (movement.enabled)
         {
@@ -25,30 +28,36 @@ public class SpawnObstacles : MonoBehaviour
         }
     }
 
-    void SpawnRow()
+    private void SpawnRow()
     {
-        float xPos = -6.4f;
+        var xPos = -6.4f;
+        var range = Random.Range(minObstaclesPerRow, 6);
 
-        int range = Random.Range(minObstaclesPerRow, 6);
-        
-        for (int i = 0; i < range; i++)
+        var freePos = new Vector3(-6.4f, 1f, zPos);
+        var powerUp = Random.Range(0, rarity);
+        var powerUpPlaced = false;
+
+        for (var i = 0; i < range; i++)
         {
-            int move = Random.Range(0, 2);
+            var move = Random.Range(0, 2);
 
-            if (move == 1)
+            if (move != 0)
             {
-                if (i != 0)
+                if (move != 1 || i == 0)
                 {
-                    xPos += 2.1f;
+                    if (move == 1)
+                    {
+                        xPos += 2.1f;
+                    }
+                }
+                else
+                {
+                    xPos += 4.2f;
                 }
             }
             else
             {
                 if (i != 0)
-                {
-                    xPos += 4.2f;
-                }
-                else
                 {
                     xPos += 2.1f;
                 }
@@ -58,25 +67,38 @@ public class SpawnObstacles : MonoBehaviour
             {
                 break;
             }
-            
-            Instantiate(prefab, new Vector3(xPos, 1, zPos), Quaternion.identity);
+
+            Instantiate(obstacle, new Vector3(xPos, 1, zPos), Quaternion.identity);
+        }
+
+        if (powerUp != 0) return;
+        for (var n = 0; n < 7; n++)
+        {
+            var place = Random.Range(0, 2);
+            if (Physics.CheckSphere(freePos, radius) == false && powerUpPlaced == false && place == 0)
+            {
+                Instantiate(bluePowerUp, freePos, Quaternion.identity);
+                powerUpPlaced = true;
+            }
+
+            freePos.x += 2.1f;
         }
 
     }
 
     public void SpawnDeath()
     {
-        float xPos = -6.4f;
+        var xPos = -6.4f;
 
-        int range = 7;
+        const int range = 7;
 
-        for (int i = 0; i < range; i++)
+        for (var i = 0; i < range; i++)
         {
-            Instantiate(prefab, new Vector3(xPos, 3, 10), Quaternion.identity);
+            Instantiate(obstacle, new Vector3(xPos, 3, 10), Quaternion.identity);
 
             xPos += 2.1f;
         }
 
-        Instantiate(prefab, new Vector3(0, 3, 5), Quaternion.identity);
+        Instantiate(obstacle, new Vector3(0, 3, 5), Quaternion.identity);
     }
 }

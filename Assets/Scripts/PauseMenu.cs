@@ -4,23 +4,18 @@ using UnityEngine.SceneManagement;
 public class PauseMenu : MonoBehaviour
 {
     public GameObject pauseMenu;
-    public static bool GameIsPaused;
-    
-    void Update()
+    private static bool _gameIsPaused;
+
+    private void Update()
     {
-        if (Input.GetButtonDown("Escape"))
+        if (!Input.GetButtonDown("Escape")) return;
+        if (_gameIsPaused)
         {
-            Debug.Log("pressed");
-            if (GameIsPaused)
-            {
-                Debug.Log("Resume");
-                Resume();
-            }
-            else
-            {
-                Debug.Log("Pause");
-                Pause();
-            }
+            Resume();
+        }
+        else
+        {
+            Pause();
         }
     }
 
@@ -29,27 +24,27 @@ public class PauseMenu : MonoBehaviour
         pauseMenu.SetActive(false);
         Cursor.visible = false;
         Time.timeScale = 1f;
-        GameIsPaused = false;
+        _gameIsPaused = false;
     }
 
-    void Pause()
+    private void Pause()
     {
         pauseMenu.SetActive(true);
         Cursor.visible = true;
         Time.timeScale = 0f;
-        GameIsPaused = true;
+        _gameIsPaused = true;
     }
     
     public void RestartButton()
     {
-        GameIsPaused = false;
+        _gameIsPaused = false;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     public void MenuButton()
     {
         Time.timeScale = 1f;
-        GameIsPaused = false;
+        _gameIsPaused = false;
         SceneManager.LoadScene(0);
     }
     

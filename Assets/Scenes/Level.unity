@@ -581,7 +581,7 @@ Transform:
   m_GameObject: {fileID: 350929710}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 200}
-  m_LocalScale: {x: 15, y: 1, z: 500}
+  m_LocalScale: {x: 15, y: 1, z: 1000}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 4
@@ -1713,11 +1713,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7c31366aad18bc4a9d1854768792aa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefab: {fileID: 2820588419931716948, guid: 01f8d48c573ddac4ebd77b6cd01f95f8, type: 3}
+  obstacle: {fileID: 2820588419931716948, guid: 01f8d48c573ddac4ebd77b6cd01f95f8,
+    type: 3}
+  bluePowerUp: {fileID: 6780675445981174055, guid: 6fa6e9feee9193d48a10a929f9b73c52,
+    type: 3}
   seconds: 1
   movement: {fileID: 2045599262}
   zPos: 100
   minObstaclesPerRow: 4
+  radius: 0.4
+  rarity: 21
 --- !u!1 &1874146817
 GameObject:
   m_ObjectHideFlags: 0
@@ -2086,3 +2091,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   manager: {fileID: 1267505828}
+  defaultMaterial: {fileID: 2100000, guid: 28ef004047d228947a6262a3798354f6, type: 2}
+  powerUpMaterial: {fileID: 2100000, guid: 5f5c2013940fa9d458b8a5688527f525, type: 2}
+  bluePowerUpSeconds: 10.2

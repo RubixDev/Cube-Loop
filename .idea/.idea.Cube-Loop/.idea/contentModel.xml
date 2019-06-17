@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Users\Silas\.Rider2019.1\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\Silas\.Rider2019.1\system\resharper-host\local\Transient\ReSharperHost\v191\SolutionCaches\_Cube-Loop.-1331703654.00" t="ExcludeRecursive" />
+    <e p="S:\Unity\Cube-Loop" t="IncludeRecursive">
+      <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
+      <e p="Assets" t="Include">
+        <e p="Scripts" t="Include">
+          <e p="CameraMovement.cs" t="Include" />
+          <e p="GameManager.cs" t="Include" />
+          <e p="Menu.cs" t="Include" />
+          <e p="Obstacle.cs" t="Include" />
+          <e p="PauseMenu.cs" t="Include" />
+          <e p="PlayerCollision.cs" t="Include" />
+          <e p="PlayerMovement.cs" t="Include" />
+          <e p="Score.cs" t="Include" />
+          <e p="SpawnObstacles.cs" t="Include" />
+        </e>
+      </e>
+      <e p="Cube-Loop.sln" t="IncludeFlat" />
+      <e p="obj" t="ExcludeRecursive" />
+      <e p="Packages" t="ExcludeRecursive" />
+      <e p="Temp\bin" t="ExcludeRecursive" />
+    </e>
+  </component>
+</project>
