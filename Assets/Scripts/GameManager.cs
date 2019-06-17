@@ -19,27 +19,25 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
-        if (_gameOver == false)
-        {
-            _gameOver = true;
-            movement.enabled = false;
-            mesh.material = material;
-            StartCoroutine(StartSpawn());
-            Invoke("Restart", restartDelay);
-        }
+        if (_gameOver) return;
+        _gameOver = true;
+        movement.enabled = false;
+        mesh.material = material;
+        StartCoroutine(StartSpawn());
+        Invoke(nameof(Restart), restartDelay);
     }
 
 
-    IEnumerator StartSpawn()
+    private IEnumerator StartSpawn()
     {
-        for (int i = 0; i < 50; i++)
+        for (var i = 0; i < 50; i++)
         {
             spawn.SpawnDeath();
             yield return new WaitForSeconds(0.05f);
         }
     }
 
-    void Restart()
+    private void Restart()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }

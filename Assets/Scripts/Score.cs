@@ -11,11 +11,11 @@ public class Score : MonoBehaviour
     public float delay = 0.3f;
     public GameObject spawner;
 
-    float _seconds;
-    int _score;
+    private float _seconds;
+    private int _score;
 
 
-    void Start()
+    private void Start()
     {
         _seconds = spawner.GetComponent<SpawnObstacles>().seconds;
         
@@ -23,7 +23,7 @@ public class Score : MonoBehaviour
     }
 
 
-    IEnumerator SetScore()
+    private IEnumerator SetScore()
     {
         yield return new WaitForSeconds(delay);
         
@@ -39,10 +39,10 @@ public class Score : MonoBehaviour
     }
 
 
-    void Update()
+    private void Update()
     {
         scoreText.text = _score.ToString(CultureInfo.InvariantCulture);
-        string highscore = PlayerPrefs.GetInt("HighScore", 0).ToString();
+        var highscore = PlayerPrefs.GetInt("HighScore", 0).ToString();
         highScoreText.text = "Highscore: " + highscore;
     }
 }

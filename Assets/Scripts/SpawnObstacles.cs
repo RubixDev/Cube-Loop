@@ -11,14 +11,15 @@ public class SpawnObstacles : MonoBehaviour
     public float zPos = 100f;
     public int minObstaclesPerRow = 4;
     public float radius = 1f;
+    public int rarity;
 
-    void Start()
+    private void Start()
     {
         StartCoroutine(Loop());
     }
 
-    
-    IEnumerator Loop()
+
+    private IEnumerator Loop()
     {
         while (movement.enabled)
         {
@@ -27,40 +28,39 @@ public class SpawnObstacles : MonoBehaviour
         }
     }
 
-    void SpawnRow()
+    private void SpawnRow()
     {
-        float xPos = -6.4f;
-        int range = Random.Range(minObstaclesPerRow, 6);
+        var xPos = -6.4f;
+        var range = Random.Range(minObstaclesPerRow, 6);
 
-        Vector3 freePos = new Vector3(-6.4f, 1f, zPos);
-        int powerUp = Random.Range(0, 1);
-        bool powerUpPlaced = false;
+        var freePos = new Vector3(-6.4f, 1f, zPos);
+        var powerUp = Random.Range(0, rarity);
+        var powerUpPlaced = false;
 
-        for (int i = 0; i < range; i++)
+        for (var i = 0; i < range; i++)
         {
-            int move = Random.Range(0, 3);
+            var move = Random.Range(0, 2);
 
-            if (move == 0)
+            if (move != 0)
             {
-                if (i != 0)
+                if (move != 1 || i == 0)
                 {
-                    xPos += 2.1f;
-                }
-            }
-            else if (move == 1)
-            {
-                if (i != 0)
-                {
-                    xPos += 4.2f;
+                    if (move == 1)
+                    {
+                        xPos += 2.1f;
+                    }
                 }
                 else
                 {
-                    xPos += 2.1f;
+                    xPos += 4.2f;
                 }
             }
             else
             {
-                Instantiate(bluePowerUp, freePos, Quaternion.identity);
+                if (i != 0)
+                {
+                    xPos += 2.1f;
+                }
             }
 
             if (xPos > 6.3f)
@@ -71,30 +71,28 @@ public class SpawnObstacles : MonoBehaviour
             Instantiate(obstacle, new Vector3(xPos, 1, zPos), Quaternion.identity);
         }
 
-        if (powerUp == 0)
+        if (powerUp != 0) return;
+        for (var n = 0; n < 7; n++)
         {
-            for (int n = 0; n < 7; n++)
+            var place = Random.Range(0, 2);
+            if (Physics.CheckSphere(freePos, radius) == false && powerUpPlaced == false && place == 0)
             {
-                int place = Random.Range(0, 2);
-                if (Physics.CheckSphere(freePos, radius) == false && powerUpPlaced == false && place == 0)
-                {
-                    Instantiate(bluePowerUp, freePos, Quaternion.identity);
-                    powerUpPlaced = true;
-                }
-
-                freePos.x += 2.1f;
+                Instantiate(bluePowerUp, freePos, Quaternion.identity);
+                powerUpPlaced = true;
             }
+
+            freePos.x += 2.1f;
         }
 
     }
 
     public void SpawnDeath()
     {
-        float xPos = -6.4f;
+        var xPos = -6.4f;
 
-        int range = 7;
+        const int range = 7;
 
-        for (int i = 0; i < range; i++)
+        for (var i = 0; i < range; i++)
         {
             Instantiate(obstacle, new Vector3(xPos, 3, 10), Quaternion.identity);
 

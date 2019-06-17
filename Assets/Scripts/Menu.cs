@@ -5,9 +5,10 @@ using UnityEngine.UI;
 public class Menu : MonoBehaviour
 {
     public Text highScoreText;
-    void Start()
+
+    private void Start()
     {
-        string highscore = PlayerPrefs.GetInt("HighScore", 0).ToString();
+        var highscore = PlayerPrefs.GetInt("HighScore", 0).ToString();
         highScoreText.text = "Highscore: " + highscore;
     }
 
