@@ -1,10 +1,12 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class SettingsMenu : MonoBehaviour
 {
     public Dropdown resolutionDropdown;
+    public Dropdown graphicsDropdown;
     
     private Resolution[] _resolutions;
     private void Start()
@@ -29,6 +31,9 @@ public class SettingsMenu : MonoBehaviour
         resolutionDropdown.AddOptions(options);
         resolutionDropdown.value = currentResolutionIndex;
         resolutionDropdown.RefreshShownValue();
+
+        graphicsDropdown.value = 2;
+        graphicsDropdown.RefreshShownValue();
     }
 
     public void SetResolution(int resolutionIndex)
@@ -45,5 +50,10 @@ public class SettingsMenu : MonoBehaviour
     public void SetFullscreen(bool isFullScreen)
     {
         Screen.fullScreen = isFullScreen;
+    }
+
+    public void BackButtton()
+    {
+        SceneManager.LoadScene(0);
     }
 }
