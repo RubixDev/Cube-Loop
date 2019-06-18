@@ -2,14 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dee0295e-a938-4bff-8178-f2134db29247" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Cube-Loop/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Cube-Loop/.idea/indexLayout.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Cube-Loop/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Cube-Loop/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SettingsMenu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SettingsMenu.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PauseMenu.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PauseMenu.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerMovement.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/GraphicsSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/GraphicsSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/QualitySettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/QualitySettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Level.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Level.unity" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -71,7 +64,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Assets/Scripts/PlayerMovement.cs">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="456">
@@ -176,10 +169,10 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Assets/Scripts/PauseMenu.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="850">
+            <state relative-caret-position="640">
               <caret line="59" column="32" selection-start-line="59" selection-start-column="32" selection-end-line="59" selection-end-column="32" />
               <folding>
                 <marker date="1560792527643" expanded="true" signature="6:53" ph="..." />
@@ -326,12 +319,12 @@
       <workItem from="1560603773408" duration="3949000" />
       <workItem from="1560615693838" duration="5242000" />
       <workItem from="1560777685280" duration="9052000" />
-      <workItem from="1560860593435" duration="1173000" />
+      <workItem from="1560860593435" duration="1774000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="19416000" />
+    <option name="totallyTimeSpent" value="20017000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -489,26 +482,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Scripts/PauseMenu.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="850">
-          <caret line="59" column="32" selection-start-line="59" selection-start-column="32" selection-end-line="59" selection-end-column="32" />
-          <folding>
-            <marker date="1560792527643" expanded="true" signature="6:53" ph="..." />
-            <marker date="1560792527643" expanded="true" signature="93:1210" ph="{...}" />
-            <marker date="1560792527643" expanded="true" signature="194:381" ph="{...}" />
-            <marker date="1560792527643" expanded="true" signature="279:321" ph="{...}" />
-            <marker date="1560792527643" expanded="true" signature="334:375" ph="{...}" />
-            <marker date="1560792527643" expanded="true" signature="407:547" ph="{...}" />
-            <marker date="1560792527643" expanded="true" signature="573:710" ph="{...}" />
-            <marker date="1560792527643" expanded="true" signature="747:858" ph="{...}" />
-            <marker date="1560792527643" expanded="true" signature="888:995" ph="{...}" />
-            <marker date="1560792527643" expanded="true" signature="1029:1096" ph="{...}" />
-            <marker date="1560792527643" expanded="true" signature="1130:1208" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Assets/Scripts/CameraMovement.cs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
@@ -567,6 +540,26 @@
             <marker date="1560864285554" expanded="true" signature="820:941" ph="{...}" />
             <marker date="1560864285554" expanded="true" signature="993:1115" ph="{...}" />
             <marker date="1560864285554" expanded="true" signature="1163:1215" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/PauseMenu.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="640">
+          <caret line="59" column="32" selection-start-line="59" selection-start-column="32" selection-end-line="59" selection-end-column="32" />
+          <folding>
+            <marker date="1560792527643" expanded="true" signature="6:53" ph="..." />
+            <marker date="1560792527643" expanded="true" signature="93:1210" ph="{...}" />
+            <marker date="1560792527643" expanded="true" signature="194:381" ph="{...}" />
+            <marker date="1560792527643" expanded="true" signature="279:321" ph="{...}" />
+            <marker date="1560792527643" expanded="true" signature="334:375" ph="{...}" />
+            <marker date="1560792527643" expanded="true" signature="407:547" ph="{...}" />
+            <marker date="1560792527643" expanded="true" signature="573:710" ph="{...}" />
+            <marker date="1560792527643" expanded="true" signature="747:858" ph="{...}" />
+            <marker date="1560792527643" expanded="true" signature="888:995" ph="{...}" />
+            <marker date="1560792527643" expanded="true" signature="1029:1096" ph="{...}" />
+            <marker date="1560792527643" expanded="true" signature="1130:1208" ph="{...}" />
           </folding>
         </state>
       </provider>

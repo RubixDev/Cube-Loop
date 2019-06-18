@@ -4,6 +4,8 @@ using UnityEngine.SceneManagement;
 public class PauseMenu : MonoBehaviour
 {
     public GameObject pauseMenu;
+    public GameObject pauseButton;
+    
     private static bool _gameIsPaused;
 
     private void Update()
@@ -25,14 +27,16 @@ public class PauseMenu : MonoBehaviour
         Cursor.visible = false;
         Time.timeScale = 1f;
         _gameIsPaused = false;
+        pauseButton.SetActive(true);
     }
 
-    private void Pause()
+    public void Pause()
     {
         pauseMenu.SetActive(true);
         Cursor.visible = true;
         Time.timeScale = 0f;
         _gameIsPaused = true;
+        pauseButton.SetActive(false);
     }
     
     public void RestartButton()
