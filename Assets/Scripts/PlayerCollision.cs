@@ -13,11 +13,13 @@ public class PlayerCollision : MonoBehaviour
     private int _loops = 10;
     private MeshRenderer _meshRenderer;
     private Rigidbody _rigidbody;
+    private Transform _transform;
     
     private void Start()
     {
         _rigidbody = GetComponent<Rigidbody>();
         _meshRenderer = GetComponent<MeshRenderer>();
+        _transform = transform;
     }
 
     private void OnCollisionEnter(Collision collisionInfo)
@@ -50,14 +52,8 @@ public class PlayerCollision : MonoBehaviour
             
             _meshRenderer.material = powerUpMaterial;
             _rigidbody.mass *= 10000f;
-            var localTransform = transform;
-            var scale = localTransform.localScale;
-            localTransform.localScale = new Vector3(scale.x * 2f, scale.y, scale.z);
-            
-            var position = localTransform.position;
-            position = new Vector3(position.x, position.y * 1.5f, position.z);
-            
-            localTransform.position = position;
+            var scale = _transform.localScale;
+            _transform.localScale = new Vector3(2f, scale.y, scale.z);
             _invincible = true;
 
             var seconds = bluePowerUpSeconds / 10;
@@ -69,10 +65,7 @@ public class PlayerCollision : MonoBehaviour
 
             _meshRenderer.material = defaultMaterial;
             _rigidbody.mass /= 1000f;
-            localTransform.localScale = new Vector3(scale.x / 2f, scale.y, scale.z);
-            
-            position = new Vector3(position.x, 1f, position.z);
-            transform.position = position;
+            _transform.localScale = new Vector3(1f, scale.y, scale.z);
             _invincible = false;
             _hasPowerUp = false;
         }

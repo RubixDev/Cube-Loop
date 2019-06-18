@@ -8,6 +8,11 @@ public class PauseMenu : MonoBehaviour
     
     private static bool _gameIsPaused;
 
+    private void Start()
+    {
+        _gameIsPaused = false;
+    }
+
     private void Update()
     {
         if (!Input.GetButtonDown("Escape")) return;
@@ -41,6 +46,7 @@ public class PauseMenu : MonoBehaviour
     
     public void RestartButton()
     {
+        Time.timeScale = 1f;
         _gameIsPaused = false;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
@@ -60,6 +66,7 @@ public class PauseMenu : MonoBehaviour
 
     public void SettingsButton()
     {
+        Time.timeScale = 1f;
         _gameIsPaused = false;
         SceneManager.LoadScene(1);
     }
