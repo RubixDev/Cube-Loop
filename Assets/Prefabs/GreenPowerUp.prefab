@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 5069717314161246987}
   m_Layer: 0
   m_Name: GreenPowerUp
-  m_TagString: BluePowerUp
+  m_TagString: GreenPowerUp
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -61,7 +61,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 5f5c2013940fa9d458b8a5688527f525, type: 2}
+  - {fileID: 2100000, guid: a0589f85d67b673428776ab3e710f199, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

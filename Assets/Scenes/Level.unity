@@ -2023,12 +2023,15 @@ MonoBehaviour:
     type: 3}
   bluePowerUp: {fileID: 6780675445981174055, guid: 6fa6e9feee9193d48a10a929f9b73c52,
     type: 3}
+  greenPowerUp: {fileID: 6780675445981174055, guid: 4d0b047c7c4af6a49a80461189b2ba9d,
+    type: 3}
   seconds: 1
   movement: {fileID: 2045599262}
   zPos: 100
   minObstaclesPerRow: 4
-  radius: 0.4
-  rarity: 21
+  radius: 0.2
+  blueRarity: 26
+  greenRarity: 21
 --- !u!1 &1819452039
 GameObject:
   m_ObjectHideFlags: 0
@@ -2547,5 +2550,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   manager: {fileID: 1267505828}
   defaultMaterial: {fileID: 2100000, guid: 28ef004047d228947a6262a3798354f6, type: 2}
-  powerUpMaterial: {fileID: 2100000, guid: 5f5c2013940fa9d458b8a5688527f525, type: 2}
-  bluePowerUpSeconds: 10.2
+  bluePowerUpMaterial: {fileID: 2100000, guid: 5f5c2013940fa9d458b8a5688527f525, type: 2}
+  greenPowerUpMaterial: {fileID: 2100000, guid: a0589f85d67b673428776ab3e710f199,
+    type: 2}
+  powerUpSeconds: 10.2

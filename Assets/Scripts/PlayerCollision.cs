@@ -5,12 +5,15 @@ public class PlayerCollision : MonoBehaviour
 {
     public GameManager manager;
     public Material defaultMaterial;
-    public Material powerUpMaterial;
-    public float bluePowerUpSeconds = 10.2f;
+    public Material bluePowerUpMaterial;
+    public Material greenPowerUpMaterial;
+    public float powerUpSeconds = 10.2f;
     
     private bool _invincible;
-    private bool _hasPowerUp;
-    private int _loops = 10;
+    private bool _hasBluePowerUp;
+    private bool _hasGreenPowerUp;
+    private int _blueLoops = 10;
+    private int _greenLoops = 10;
     private MeshRenderer _meshRenderer;
     private Rigidbody _rigidbody;
     private Transform _transform;
@@ -40,25 +43,29 @@ public class PlayerCollision : MonoBehaviour
         {
             StartCoroutine(BluePowerUp(other));
         }
+        if(other.gameObject.CompareTag("GreenPowerUp"))
+        {
+            StartCoroutine(GreenPowerUp(other));
+        }
     }
 
     private IEnumerator BluePowerUp(Component powerUp)
     {
         Destroy(powerUp.gameObject);
         
-        if (_hasPowerUp == false)
+        if (_hasBluePowerUp == false)
         {
-            _hasPowerUp = true;
+            _hasBluePowerUp = true;
             
-            _meshRenderer.material = powerUpMaterial;
+            _meshRenderer.material = bluePowerUpMaterial;
             _rigidbody.mass *= 10000f;
             var scale = _transform.localScale;
             _transform.localScale = new Vector3(2f, scale.y, scale.z);
             _invincible = true;
 
-            var seconds = bluePowerUpSeconds / 10;
+            var seconds = powerUpSeconds / 10;
             
-            for (var i = 0; i < _loops; i++)
+            for (var i = 0; i < _blueLoops; i++)
             {
                 yield return new WaitForSeconds(seconds);
             }
@@ -67,11 +74,38 @@ public class PlayerCollision : MonoBehaviour
             _rigidbody.mass /= 1000f;
             _transform.localScale = new Vector3(1f, scale.y, scale.z);
             _invincible = false;
-            _hasPowerUp = false;
+            _hasBluePowerUp = false;
         }
         else
         {
-            _loops += 10;
+            _blueLoops += 10;
+        }
+    }
+
+    private IEnumerator GreenPowerUp(Component powerUp)
+    {
+        Destroy(powerUp.gameObject);
+        
+        if (_hasGreenPowerUp == false)
+        {
+            _hasGreenPowerUp = true;
+            _meshRenderer.material = greenPowerUpMaterial;
+            Time.timeScale = 0.5f;
+            
+            var seconds = powerUpSeconds / 10;
+            
+            for (var i = 0; i < _greenLoops; i++)
+            {
+                yield return new WaitForSeconds(seconds);
+            }
+            
+            _hasGreenPowerUp = false;
+            _meshRenderer.material = defaultMaterial;
+            Time.timeScale = 1f;
+        }
+        else
+        {
+            _greenLoops += 10;
         }
     }
 }

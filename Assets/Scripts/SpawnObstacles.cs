@@ -6,12 +6,14 @@ public class SpawnObstacles : MonoBehaviour
 {
     public GameObject obstacle;
     public GameObject bluePowerUp;
+    public GameObject greenPowerUp;
     public float seconds = 4f;
     public PlayerMovement movement;
     public float zPos = 100f;
     public int minObstaclesPerRow = 4;
     public float radius = 1f;
-    public int rarity;
+    public int blueRarity;
+    public int greenRarity;
 
     private void Start()
     {
@@ -34,8 +36,10 @@ public class SpawnObstacles : MonoBehaviour
         var range = Random.Range(minObstaclesPerRow, 6);
 
         var freePos = new Vector3(-6.4f, 1f, zPos);
-        var powerUp = Random.Range(0, rarity);
-        var powerUpPlaced = false;
+        var placeBluePowerUp = Random.Range(0, blueRarity);
+        var placeGreenPowerUp = Random.Range(0, greenRarity);
+        var bluePowerUpPlaced = false;
+        var greenPowerUpPlaced = false;
 
         for (var i = 0; i < range; i++)
         {
@@ -71,19 +75,37 @@ public class SpawnObstacles : MonoBehaviour
             Instantiate(obstacle, new Vector3(xPos, 1, zPos), Quaternion.identity);
         }
 
-        if (powerUp != 0) return;
-        for (var n = 0; n < 7; n++)
+        if (placeBluePowerUp == 0)
         {
-            var place = Random.Range(0, 2);
-            if (Physics.CheckSphere(freePos, radius) == false && powerUpPlaced == false && place == 0)
+            for (var n = 0; n < 7; n++)
             {
-                Instantiate(bluePowerUp, freePos, Quaternion.identity);
-                powerUpPlaced = true;
-            }
+                var place = Random.Range(0, 2);
+                if (Physics.CheckSphere(freePos, radius) == false && bluePowerUpPlaced == false && place == 0)
+                {
+                    Instantiate(bluePowerUp, freePos, Quaternion.identity);
+                    bluePowerUpPlaced = true;
+                }
 
-            freePos.x += 2.1f;
+                freePos.x += 2.1f;
+            }
         }
 
+        freePos = new Vector3(-6.4f, 1f, zPos);
+
+        if (placeGreenPowerUp == 0)
+        {
+            for (var n = 0; n < 7; n++)
+            {
+                var place = Random.Range(0, 2);
+                if (Physics.CheckSphere(freePos, radius) == false && greenPowerUpPlaced == false && place == 0)
+                {
+                    Instantiate(greenPowerUp, freePos, Quaternion.identity);
+                    greenPowerUpPlaced = true;
+                }
+
+                freePos.x += 2.1f;
+            }
+        }
     }
 
     public void SpawnDeath()
