@@ -70,7 +70,7 @@ public class PlayerCollision : MonoBehaviour
                 yield return new WaitForSeconds(seconds);
             }
 
-            _meshRenderer.material = defaultMaterial;
+            _meshRenderer.material = _hasGreenPowerUp == false ? defaultMaterial : greenPowerUpMaterial;
             _rigidbody.mass /= 1000f;
             _transform.localScale = new Vector3(1f, scale.y, scale.z);
             _invincible = false;
@@ -100,7 +100,7 @@ public class PlayerCollision : MonoBehaviour
             }
             
             _hasGreenPowerUp = false;
-            _meshRenderer.material = defaultMaterial;
+            _meshRenderer.material = _hasBluePowerUp == false ? defaultMaterial : bluePowerUpMaterial;
             Time.timeScale = 1f;
         }
         else
