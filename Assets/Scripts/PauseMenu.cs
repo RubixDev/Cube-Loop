@@ -32,7 +32,7 @@ public class PauseMenu : MonoBehaviour
         Cursor.visible = false;
         Time.timeScale = 1f;
         _gameIsPaused = false;
-        pauseButton.SetActive(true);
+        // pauseButton.SetActive(true);
     }
 
     public void Pause()
@@ -41,7 +41,7 @@ public class PauseMenu : MonoBehaviour
         Cursor.visible = true;
         Time.timeScale = 0f;
         _gameIsPaused = true;
-        pauseButton.SetActive(false);
+        // pauseButton.SetActive(false);
     }
     
     public void RestartButton()

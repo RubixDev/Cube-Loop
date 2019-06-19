@@ -9,4 +9,12 @@ public class Obstacle : MonoBehaviour
     {
         rb.AddForce(0, 0, -speed * Time.deltaTime);
     }
+
+    private void OnTriggerEnter(Collider trigger)
+    {
+        if (trigger.gameObject.CompareTag("BehindPlayer"))
+        {
+            Destroy(gameObject);
+        }
+    }
 }
