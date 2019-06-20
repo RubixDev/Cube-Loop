@@ -8,10 +8,11 @@ public class PlayerCollision : MonoBehaviour
     public Material bluePowerUpMaterial;
     public Material greenPowerUpMaterial;
     public float powerUpSeconds = 10.2f;
+    [HideInInspector]
+    public bool hasGreenPowerUp;
     
     private bool _invincible;
     private bool _hasBluePowerUp;
-    private bool _hasGreenPowerUp;
     private int _blueLoops = 10;
     private int _greenLoops = 10;
     private MeshRenderer _meshRenderer;
@@ -70,7 +71,7 @@ public class PlayerCollision : MonoBehaviour
                 yield return new WaitForSeconds(seconds);
             }
 
-            _meshRenderer.material = _hasGreenPowerUp == false ? defaultMaterial : greenPowerUpMaterial;
+            _meshRenderer.material = hasGreenPowerUp == false ? defaultMaterial : greenPowerUpMaterial;
             _rigidbody.mass /= 1000f;
             _transform.localScale = new Vector3(1f, scale.y, scale.z);
             _invincible = false;
@@ -86,9 +87,9 @@ public class PlayerCollision : MonoBehaviour
     {
         Destroy(powerUp.gameObject);
         
-        if (_hasGreenPowerUp == false)
+        if (hasGreenPowerUp == false)
         {
-            _hasGreenPowerUp = true;
+            hasGreenPowerUp = true;
             _meshRenderer.material = greenPowerUpMaterial;
             Time.timeScale = 0.5f;
             
@@ -99,7 +100,7 @@ public class PlayerCollision : MonoBehaviour
                 yield return new WaitForSeconds(seconds);
             }
             
-            _hasGreenPowerUp = false;
+            hasGreenPowerUp = false;
             _meshRenderer.material = _hasBluePowerUp == false ? defaultMaterial : bluePowerUpMaterial;
             Time.timeScale = 1f;
         }

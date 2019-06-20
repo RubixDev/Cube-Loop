@@ -2554,3 +2554,4 @@ MonoBehaviour:
   greenPowerUpMaterial: {fileID: 2100000, guid: a0589f85d67b673428776ab3e710f199,
     type: 2}
   powerUpSeconds: 10.2
+  hasGreenPowerUp: 0

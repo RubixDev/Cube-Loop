@@ -7,10 +7,13 @@ public class PauseMenu : MonoBehaviour
     public GameObject pauseButton;
     
     private static bool _gameIsPaused;
+    private PlayerCollision _playerCollision;
 
     private void Start()
     {
         _gameIsPaused = false;
+        var player = GameObject.FindGameObjectWithTag("Player");
+        _playerCollision = player.GetComponent<PlayerCollision>();
     }
 
     private void Update()
@@ -31,6 +34,10 @@ public class PauseMenu : MonoBehaviour
         pauseMenu.SetActive(false);
         Cursor.visible = false;
         Time.timeScale = 1f;
+        if (_playerCollision.hasGreenPowerUp)
+        {
+            Time.timeScale = 0.5f;
+        }
         _gameIsPaused = false;
         // pauseButton.SetActive(true);
     }
