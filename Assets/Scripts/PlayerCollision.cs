@@ -7,6 +7,9 @@ public class PlayerCollision : MonoBehaviour
     public Material defaultMaterial;
     public Material bluePowerUpMaterial;
     public Material greenPowerUpMaterial;
+    public Mesh defaultMesh;
+    public Mesh greenPowerUpMesh;
+    public GameObject playerModel;
     public float powerUpSeconds = 10.2f;
     public MeshRenderer meshRenderer;
     [HideInInspector]
@@ -18,9 +21,11 @@ public class PlayerCollision : MonoBehaviour
     private int _greenLoops = 10;
     private Rigidbody _rigidbody;
     private Transform _transform;
-    
+    private MeshFilter _meshFilter;
+
     private void Start()
     {
+        _meshFilter = playerModel.GetComponent<MeshFilter>();
         _rigidbody = GetComponent<Rigidbody>();
         _transform = transform;
     }
@@ -89,18 +94,20 @@ public class PlayerCollision : MonoBehaviour
         if (hasGreenPowerUp == false)
         {
             hasGreenPowerUp = true;
-            meshRenderer.material = greenPowerUpMaterial;
+            // meshRenderer.material = greenPowerUpMaterial;
+            _meshFilter.mesh = greenPowerUpMesh;
             Time.timeScale = 0.7f;
             
             var seconds = powerUpSeconds / 10;
             
-            for (var i = 0; i < _greenLoops; i++)
+            for (var i = 0; i < 1; i++)
             {
                 yield return new WaitForSeconds(seconds);
             }
             
             hasGreenPowerUp = false;
-            meshRenderer.material = _hasBluePowerUp == false ? defaultMaterial : bluePowerUpMaterial;
+            // meshRenderer.material = _hasBluePowerUp == false ? defaultMaterial : bluePowerUpMaterial;
+            _meshFilter.mesh = defaultMesh;
             Time.timeScale = 1f;
         }
         else
