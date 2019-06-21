@@ -15,6 +15,7 @@
           <e p="PlayerCollision.cs" t="Include" />
           <e p="PlayerMovement.cs" t="Include" />
           <e p="Score.cs" t="Include" />
+          <e p="ScoreCounter.cs" t="Include" />
           <e p="SettingsMenu.cs" t="Include" />
           <e p="SpawnObstacles.cs" t="Include" />
         </e>

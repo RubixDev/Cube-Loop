@@ -8,6 +8,7 @@ public class PlayerCollision : MonoBehaviour
     public Material bluePowerUpMaterial;
     public Material greenPowerUpMaterial;
     public float powerUpSeconds = 10.2f;
+    public MeshRenderer meshRenderer;
     [HideInInspector]
     public bool hasGreenPowerUp;
     
@@ -15,14 +16,12 @@ public class PlayerCollision : MonoBehaviour
     private bool _hasBluePowerUp;
     private int _blueLoops = 10;
     private int _greenLoops = 10;
-    private MeshRenderer _meshRenderer;
     private Rigidbody _rigidbody;
     private Transform _transform;
     
     private void Start()
     {
         _rigidbody = GetComponent<Rigidbody>();
-        _meshRenderer = GetComponent<MeshRenderer>();
         _transform = transform;
     }
 
@@ -58,7 +57,7 @@ public class PlayerCollision : MonoBehaviour
         {
             _hasBluePowerUp = true;
             
-            _meshRenderer.material = bluePowerUpMaterial;
+            meshRenderer.material = bluePowerUpMaterial;
             _rigidbody.mass *= 10000f;
             var scale = _transform.localScale;
             _transform.localScale = new Vector3(2f, scale.y, scale.z);
@@ -71,7 +70,7 @@ public class PlayerCollision : MonoBehaviour
                 yield return new WaitForSeconds(seconds);
             }
 
-            _meshRenderer.material = hasGreenPowerUp == false ? defaultMaterial : greenPowerUpMaterial;
+            meshRenderer.material = hasGreenPowerUp == false ? defaultMaterial : greenPowerUpMaterial;
             _rigidbody.mass /= 1000f;
             _transform.localScale = new Vector3(1f, scale.y, scale.z);
             _invincible = false;
@@ -90,8 +89,8 @@ public class PlayerCollision : MonoBehaviour
         if (hasGreenPowerUp == false)
         {
             hasGreenPowerUp = true;
-            _meshRenderer.material = greenPowerUpMaterial;
-            Time.timeScale = 0.5f;
+            meshRenderer.material = greenPowerUpMaterial;
+            Time.timeScale = 0.7f;
             
             var seconds = powerUpSeconds / 10;
             
@@ -101,7 +100,7 @@ public class PlayerCollision : MonoBehaviour
             }
             
             hasGreenPowerUp = false;
-            _meshRenderer.material = _hasBluePowerUp == false ? defaultMaterial : bluePowerUpMaterial;
+            meshRenderer.material = _hasBluePowerUp == false ? defaultMaterial : bluePowerUpMaterial;
             Time.timeScale = 1f;
         }
         else

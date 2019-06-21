@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour
     public float restartDelay = 1f;
     public PlayerMovement movement;
     public Material material;
-    public MeshRenderer mesh;
+    public MeshRenderer meshRenderer;
     public SpawnObstacles spawn;
     
     private bool _gameOver;
@@ -22,8 +22,9 @@ public class GameManager : MonoBehaviour
         if (_gameOver) return;
         _gameOver = true;
         movement.enabled = false;
-        mesh.material = material;
+        meshRenderer.material = material;
         StartCoroutine(StartSpawn());
+        Time.timeScale = 1f;
         Invoke(nameof(Restart), restartDelay);
     }
 

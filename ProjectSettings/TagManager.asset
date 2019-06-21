@@ -8,6 +8,9 @@ TagManager:
   - BluePowerUp
   - BehindPlayer
   - GreenPowerUp
+  - AtPlayer
+  - ScoreText
+  - ScoreCounter
   layers:
   - Default
   - TransparentFX

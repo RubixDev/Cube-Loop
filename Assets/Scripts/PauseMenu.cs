@@ -36,7 +36,7 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 1f;
         if (_playerCollision.hasGreenPowerUp)
         {
-            Time.timeScale = 0.5f;
+            Time.timeScale = 0.7f;
         }
         _gameIsPaused = false;
         // pauseButton.SetActive(true);

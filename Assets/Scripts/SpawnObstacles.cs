@@ -5,6 +5,7 @@ using Random = UnityEngine.Random;
 public class SpawnObstacles : MonoBehaviour
 {
     public GameObject obstacle;
+    public GameObject scoreCounter;
     public GameObject bluePowerUp;
     public GameObject greenPowerUp;
     public float seconds = 4f;
@@ -40,6 +41,8 @@ public class SpawnObstacles : MonoBehaviour
         var placeGreenPowerUp = Random.Range(0, greenRarity);
         var bluePowerUpPlaced = false;
         var greenPowerUpPlaced = false;
+        
+        Instantiate(scoreCounter, new Vector3(0, -1, zPos), Quaternion.identity);
 
         for (var i = 0; i < range; i++)
         {
