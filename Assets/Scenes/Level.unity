@@ -2140,8 +2140,8 @@ MonoBehaviour:
   zPos: 100
   minObstaclesPerRow: 4
   radius: 0.2
-  blueRarity: 41
-  greenRarity: 31
+  blueRarity: 2
+  greenRarity: 2
 --- !u!1 &1819452039
 GameObject:
   m_ObjectHideFlags: 0
