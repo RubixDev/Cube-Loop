@@ -19,9 +19,18 @@ public class SpawnObstacles : MonoBehaviour
     private void Start()
     {
         StartCoroutine(Loop());
+        StartCoroutine(IncreaseSpeed());
     }
 
-
+    private IEnumerator IncreaseSpeed()
+    {
+        while (movement.enabled && seconds > 0.85f)
+        {
+            yield return new WaitForSeconds(2f);
+            seconds -= 0.05f;
+        }
+    }
+    
     private IEnumerator Loop()
     {
         while (movement.enabled)
