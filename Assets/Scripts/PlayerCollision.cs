@@ -4,30 +4,54 @@ using UnityEngine;
 public class PlayerCollision : MonoBehaviour
 {
     public GameManager manager;
-    public Material defaultMaterial;
-    public Material bluePowerUpMaterial;
-    public Material greenPowerUpMaterial;
     public Mesh defaultMesh;
     public Mesh greenPowerUpMesh;
+    public Mesh bluePowerUpMesh;
+    public Mesh bothPowerUpsMesh;
     public GameObject playerModel;
+    public BoxCollider playerCollider;
     public float powerUpSeconds = 10.2f;
-    public MeshRenderer meshRenderer;
     [HideInInspector]
     public bool hasGreenPowerUp;
     
     private bool _invincible;
     private bool _hasBluePowerUp;
-    private int _blueLoops = 10;
-    private int _greenLoops = 10;
+    private bool _blueExpired;
+    private bool _greenExpired;
+    private int _score;
+    private int _currentScoreBlue = -1;
+    private int _currentScoreGreen = -1;
     private Rigidbody _rigidbody;
-    private Transform _transform;
     private MeshFilter _meshFilter;
+    private Score _scoreScript;
 
     private void Start()
     {
+        _scoreScript = GameObject.FindGameObjectWithTag("ScoreText").GetComponent<Score>();
         _meshFilter = playerModel.GetComponent<MeshFilter>();
         _rigidbody = GetComponent<Rigidbody>();
-        _transform = transform;
+    }
+
+    private void Update()
+    {
+        _score = _scoreScript.score;
+
+        if (_score == _currentScoreBlue + 10 && _currentScoreBlue != -1)
+        {
+            _blueExpired = true;
+        }
+        else
+        {
+            _blueExpired = false;
+        }
+        if (_score == _currentScoreGreen + 10 && _currentScoreGreen != -1)
+        {
+            _greenExpired = true;
+        }
+        else
+        {
+            _greenExpired = false;
+        }
     }
 
     private void OnCollisionEnter(Collision collisionInfo)
@@ -47,6 +71,7 @@ public class PlayerCollision : MonoBehaviour
         if (other.gameObject.CompareTag("BluePowerUp"))
         {
             StartCoroutine(BluePowerUp(other));
+            // BluePowerUp(other);
         }
         if(other.gameObject.CompareTag("GreenPowerUp"))
         {
@@ -62,28 +87,29 @@ public class PlayerCollision : MonoBehaviour
         {
             _hasBluePowerUp = true;
             
-            meshRenderer.material = bluePowerUpMaterial;
+            _meshFilter.mesh = hasGreenPowerUp == false ? bluePowerUpMesh : bothPowerUpsMesh;
             _rigidbody.mass *= 10000f;
-            var scale = _transform.localScale;
-            _transform.localScale = new Vector3(2f, scale.y, scale.z);
+            var size = playerCollider.size;
+            playerCollider.size = new Vector3(2f, size.y, size.z);
             _invincible = true;
 
-            var seconds = powerUpSeconds / 10;
-            
-            for (var i = 0; i < _blueLoops; i++)
-            {
-                yield return new WaitForSeconds(seconds);
-            }
+            _currentScoreBlue = _score;
 
-            meshRenderer.material = hasGreenPowerUp == false ? defaultMaterial : greenPowerUpMaterial;
+            while (!_blueExpired)
+            {
+                yield return null;
+            }
+            yield return new WaitForSeconds(0.2f);
+            
+            _meshFilter.mesh = hasGreenPowerUp == false ? defaultMesh : greenPowerUpMesh;
             _rigidbody.mass /= 1000f;
-            _transform.localScale = new Vector3(1f, scale.y, scale.z);
+            playerCollider.size = new Vector3(1f, size.y, size.z);
             _invincible = false;
             _hasBluePowerUp = false;
         }
         else
         {
-            _blueLoops += 10;
+            _currentScoreBlue += 10;
         }
     }
 
@@ -94,25 +120,24 @@ public class PlayerCollision : MonoBehaviour
         if (hasGreenPowerUp == false)
         {
             hasGreenPowerUp = true;
-            // meshRenderer.material = greenPowerUpMaterial;
-            _meshFilter.mesh = greenPowerUpMesh;
+            _meshFilter.mesh = _hasBluePowerUp == false ? greenPowerUpMesh : bothPowerUpsMesh;
             Time.timeScale = 0.7f;
             
-            var seconds = powerUpSeconds / 10;
-            
-            for (var i = 0; i < 1; i++)
+            _currentScoreGreen = _score;
+
+            while (!_greenExpired)
             {
-                yield return new WaitForSeconds(seconds);
+                yield return null;
             }
+            yield return new WaitForSeconds(0.2f);
             
             hasGreenPowerUp = false;
-            // meshRenderer.material = _hasBluePowerUp == false ? defaultMaterial : bluePowerUpMaterial;
-            _meshFilter.mesh = defaultMesh;
+            _meshFilter.mesh = _hasBluePowerUp == false ? defaultMesh : bluePowerUpMesh;
             Time.timeScale = 1f;
         }
         else
         {
-            _greenLoops += 10;
+            _currentScoreGreen += 10;
         }
     }
 }

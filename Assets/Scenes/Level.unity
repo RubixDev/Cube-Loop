@@ -1191,6 +1191,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scoreText: {fileID: 701608633}
   highScoreText: {fileID: 550440407}
+  score: 0
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -2108,7 +2109,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1808338733}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.2281146, y: 0.5121932, z: -37.90675}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2139,8 +2140,8 @@ MonoBehaviour:
   zPos: 100
   minObstaclesPerRow: 4
   radius: 0.2
-  blueRarity: 26
-  greenRarity: 1
+  blueRarity: 1
+  greenRarity: 31
 --- !u!1 &1819452039
 GameObject:
   m_ObjectHideFlags: 0
@@ -2617,11 +2618,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2045599261}
     m_Modifications:
-    - target: {fileID: -927199367670048503, guid: a117fb21c3877f342b159d923bc02ba3,
-        type: 3}
-      propertyPath: m_Name
-      value: Player
-      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: a117fb21c3877f342b159d923bc02ba3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2676,6 +2672,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: a117fb21c3877f342b159d923bc02ba3,
+        type: 3}
+      propertyPath: m_Name
+      value: Player
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a117fb21c3877f342b159d923bc02ba3, type: 3}
@@ -2820,16 +2821,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   manager: {fileID: 1267505828}
-  defaultMaterial: {fileID: -8469494145858465668, guid: a117fb21c3877f342b159d923bc02ba3,
-    type: 3}
-  bluePowerUpMaterial: {fileID: 2100000, guid: 5f5c2013940fa9d458b8a5688527f525, type: 2}
-  greenPowerUpMaterial: {fileID: 2100000, guid: a0589f85d67b673428776ab3e710f199,
-    type: 2}
   defaultMesh: {fileID: -2432090755550338912, guid: a117fb21c3877f342b159d923bc02ba3,
     type: 3}
-  greenPowerUpMesh: {fileID: -2432090755550338912, guid: 6c619efbdb2efd94885bf3d746ce7682,
+  greenPowerUpMesh: {fileID: -2432090755550338912, guid: 42065810416e6f24ab64a7807466f153,
+    type: 3}
+  bluePowerUpMesh: {fileID: -2432090755550338912, guid: 2df024efed75baa45b79e10930aa81a6,
+    type: 3}
+  bothPowerUpsMesh: {fileID: -2432090755550338912, guid: 1454274f5b48baf489edd51079534e3f,
     type: 3}
   playerModel: {fileID: 159343800}
+  playerCollider: {fileID: 2045599258}
   powerUpSeconds: 10.2
-  meshRenderer: {fileID: 159343801}
   hasGreenPowerUp: 0
