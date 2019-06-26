@@ -32,7 +32,7 @@ To pause the game while playing press the pause button in the top left corner.
 The other buttons can just simply be pressed.
 
 ## Gameplay
-When you collect power ups, they'll disappear. If you get a power up while already having the effect, the time to have the power up will increase.
+When you collect power ups, they'll disappear. If you get a power up while already having the effect, the rows to have the power up will increase.
 There are two types of power ups:
 
 ### Blue Power Ups
