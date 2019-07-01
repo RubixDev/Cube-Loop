@@ -56,4 +56,9 @@ public class SettingsMenu : MonoBehaviour
     {
         SceneManager.LoadScene(0);
     }
+
+    public void ResetButton()
+    {
+        PlayerPrefs.DeleteKey("HighScore");
+    }
 }

@@ -10,7 +10,6 @@ public class PlayerCollision : MonoBehaviour
     public Mesh bothPowerUpsMesh;
     public GameObject playerModel;
     public BoxCollider playerCollider;
-    public float powerUpSeconds = 10.2f;
     [HideInInspector]
     public bool hasGreenPowerUp;
     
