@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     public Material material;
     public MeshRenderer meshRenderer;
     public SpawnObstacles spawn;
+    public bool android;
     
     private bool _gameOver;
 

@@ -886,6 +886,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 1305527859}
   pauseButton: {fileID: 406319609}
+  gameManager: {fileID: 1267505826}
 --- !u!1 &406319609
 GameObject:
   m_ObjectHideFlags: 0
@@ -1657,6 +1658,7 @@ MonoBehaviour:
   material: {fileID: 2100000, guid: 46b937d656d6c614cbfd395059ecf490, type: 2}
   meshRenderer: {fileID: 159343801}
   spawn: {fileID: 1808338735}
+  android: 0
 --- !u!1 &1305527859
 GameObject:
   m_ObjectHideFlags: 0
@@ -2618,6 +2620,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2045599261}
     m_Modifications:
+    - target: {fileID: -927199367670048503, guid: a117fb21c3877f342b159d923bc02ba3,
+        type: 3}
+      propertyPath: m_Name
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: a117fb21c3877f342b159d923bc02ba3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2672,11 +2679,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -927199367670048503, guid: a117fb21c3877f342b159d923bc02ba3,
-        type: 3}
-      propertyPath: m_Name
-      value: Player
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a117fb21c3877f342b159d923bc02ba3, type: 3}
@@ -2831,5 +2833,4 @@ MonoBehaviour:
     type: 3}
   playerModel: {fileID: 159343800}
   playerCollider: {fileID: 2045599258}
-  powerUpSeconds: 10.2
   hasGreenPowerUp: 0

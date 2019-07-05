@@ -5,8 +5,10 @@ public class PauseMenu : MonoBehaviour
 {
     public GameObject pauseMenu;
     public GameObject pauseButton;
+    public GameObject gameManager;
     
     private static bool _gameIsPaused;
+    private bool _android;
     private PlayerCollision _playerCollision;
 
     private void Start()
@@ -14,6 +16,8 @@ public class PauseMenu : MonoBehaviour
         _gameIsPaused = false;
         var player = GameObject.FindGameObjectWithTag("Player");
         _playerCollision = player.GetComponent<PlayerCollision>();
+
+        _android = gameManager.GetComponent<GameManager>().android;
     }
 
     private void Update()
@@ -39,7 +43,11 @@ public class PauseMenu : MonoBehaviour
             Time.timeScale = 0.7f;
         }
         _gameIsPaused = false;
-       // pauseButton.SetActive(true);
+
+        if (_android)
+        {
+            pauseButton.SetActive(true);
+        }
     }
 
     public void Pause()
@@ -48,7 +56,11 @@ public class PauseMenu : MonoBehaviour
         Cursor.visible = true;
         Time.timeScale = 0f;
         _gameIsPaused = true;
-        // pauseButton.SetActive(false);
+        
+        if (_android)
+        {
+            pauseButton.SetActive(false);
+        }
     }
     
     public void RestartButton()

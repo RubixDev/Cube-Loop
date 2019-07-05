@@ -2682,18 +2682,18 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: 6747f276c67c75c409fa218702712b32, type: 3}
-    m_FontSize: 31
+    m_FontSize: 28
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
-    m_MaxSize: 51
+    m_MinSize: 0
+    m_MaxSize: 82
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Reset
+  m_Text: Reset Highscore
 --- !u!222 &1689430629
 CanvasRenderer:
   m_ObjectHideFlags: 0
