@@ -3,19 +3,19 @@ In Cube Loop you control a red cube and have to dodge the randomly generated obs
 
 ## Installation (Windows)
 ### ZIP file
-1. Download the latest [Cube-Loop_x86.zip](https://github.com/RubixDev/Cube-Loop/releases/download/v1.4/Cube-Loop_x86.zip) to your PC
+1. Download the latest [Cube-Loop_x86.zip](https://github.com/RubixDev/Cube-Loop/releases/download/v1.4.1/Cube-Loop_x86.zip) to your PC
 2. Unzip the file
 3. Run Cube Loop.exe
 4. Play the game
 
 ### Installer
-1. Download the latest [Cube-Loop_Setup_x86.exe](https://github.com/RubixDev/Cube-Loop/releases/download/v1.4/Cube-Loop_Setup_x86.exe) to your PC
+1. Download the latest [Cube-Loop_Setup_x86.exe](https://github.com/RubixDev/Cube-Loop/releases/download/v1.4.1/Cube-Loop_Setup_x86.exe) to your PC
 2. Run the downloaded file
 3. Follow the instructions through the installation process
 4. Play the installed game
 
 ## Installation (Android)
-1. Download the latest [Cube-Loop.apk](https://github.com/RubixDev/Cube-Loop/releases/download/v1.4/Cube-Loop.apk) to your Android device
+1. Download the latest [Cube-Loop.apk](https://github.com/RubixDev/Cube-Loop/releases/download/v1.4.1/Cube-Loop.apk) to your Android device
 2. Open the downloaded file
 3. Click on Install
 4. You might need to allow the installation in your settings
