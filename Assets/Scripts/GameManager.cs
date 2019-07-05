@@ -32,10 +32,16 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator StartSpawn()
     {
+        var timeBetween = 0.05f;
+        if (QualitySettings.GetQualityLevel() == 0)
+        {
+            timeBetween = 0.2f;
+        }
+        
         for (var i = 0; i < 50; i++)
         {
             spawn.SpawnDeath();
-            yield return new WaitForSeconds(0.05f);
+            yield return new WaitForSeconds(timeBetween);
         }
     }
 

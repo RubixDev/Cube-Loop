@@ -26,7 +26,7 @@ public class SpawnObstacles : MonoBehaviour
     {
         while (movement.enabled && seconds > 0.85f)
         {
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(4f);
             seconds -= 0.05f;
         }
     }

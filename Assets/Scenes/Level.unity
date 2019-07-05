@@ -2140,10 +2140,10 @@ MonoBehaviour:
   seconds: 2
   movement: {fileID: 2045599262}
   zPos: 100
-  minObstaclesPerRow: 4
+  minObstaclesPerRow: 5
   radius: 0.2
-  blueRarity: 41
-  greenRarity: 31
+  blueRarity: 36
+  greenRarity: 26
 --- !u!1 &1819452039
 GameObject:
   m_ObjectHideFlags: 0
