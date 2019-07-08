@@ -33,7 +33,8 @@ public class GameManager : MonoBehaviour
     private IEnumerator StartSpawn()
     {
         var timeBetween = 0.05f;
-        if (QualitySettings.GetQualityLevel() == 0)
+        if (QualitySettings.GetQualityLevel() == 2 && android |
+            QualitySettings.GetQualityLevel() == 0 && android == false)
         {
             timeBetween = 0.2f;
         }

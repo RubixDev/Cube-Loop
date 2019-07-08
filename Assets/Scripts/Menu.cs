@@ -14,7 +14,7 @@ public class Menu : MonoBehaviour
 
     public void StartGame()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 2);
+        SceneManager.LoadScene(3);
     }
 
     public void QuitGame()
@@ -26,5 +26,10 @@ public class Menu : MonoBehaviour
     public void SettingsButton()
     {
         SceneManager.LoadScene(1);
+    }
+
+    public void SkinsButton()
+    {
+        SceneManager.LoadScene(2);
     }
 }
