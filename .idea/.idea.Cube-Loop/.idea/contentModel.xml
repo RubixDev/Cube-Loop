@@ -17,6 +17,7 @@
           <e p="Score.cs" t="Include" />
           <e p="ScoreCounter.cs" t="Include" />
           <e p="SettingsMenu.cs" t="Include" />
+          <e p="SkinSelection.cs" t="Include" />
           <e p="SpawnObstacles.cs" t="Include" />
         </e>
       </e>
