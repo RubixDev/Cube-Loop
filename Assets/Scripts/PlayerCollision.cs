@@ -4,12 +4,27 @@ using UnityEngine;
 public class PlayerCollision : MonoBehaviour
 {
     public GameManager manager;
-    public Mesh defaultMesh;
-    public Mesh greenPowerUpMesh;
-    public Mesh bluePowerUpMesh;
-    public Mesh bothPowerUpsMesh;
     public GameObject playerModel;
     public BoxCollider playerCollider;
+    
+    [Header("Default Skin")]
+    public Mesh defaultDefaultMesh;
+    public Mesh defaultGreenPowerUpMesh;
+    public Mesh defaultBluePowerUpMesh;
+    public Mesh defaultBothPowerUpsMesh;
+    
+    [Header("Maze Skin")]
+    public Mesh mazeDefaultMesh;
+    public Mesh mazeGreenPowerUpMesh;
+    public Mesh mazeBluePowerUpMesh;
+    public Mesh mazeBothPowerUpsMesh;
+    
+    [Header("Egypt Skin")]
+    public Mesh egyptDefaultMesh;
+    public Mesh egyptGreenPowerUpMesh;
+    public Mesh egyptBluePowerUpMesh;
+    public Mesh egyptBothPowerUpsMesh;
+    
     [HideInInspector]
     public bool hasGreenPowerUp;
     
@@ -20,6 +35,10 @@ public class PlayerCollision : MonoBehaviour
     private int _score;
     private int _currentScoreBlue = -1;
     private int _currentScoreGreen = -1;
+    private Mesh _defaultMesh;
+    private Mesh _greenPowerUpMesh;
+    private Mesh _bluePowerUpMesh;
+    private Mesh _bothPowerUpsMesh;
     private Rigidbody _rigidbody;
     private MeshFilter _meshFilter;
     private Score _scoreScript;
@@ -29,6 +48,10 @@ public class PlayerCollision : MonoBehaviour
         _scoreScript = GameObject.FindGameObjectWithTag("ScoreText").GetComponent<Score>();
         _meshFilter = playerModel.GetComponent<MeshFilter>();
         _rigidbody = GetComponent<Rigidbody>();
+        
+        setSkin();
+
+        _meshFilter.mesh = _defaultMesh;
     }
 
     private void Update()
@@ -78,6 +101,31 @@ public class PlayerCollision : MonoBehaviour
         }
     }
 
+    private void setSkin()
+    {
+        if (PlayerPrefs.GetInt("Skin", 0) == 0)
+        {
+            _defaultMesh = defaultDefaultMesh;
+            _greenPowerUpMesh = defaultGreenPowerUpMesh;
+            _bluePowerUpMesh = defaultBluePowerUpMesh;
+            _bothPowerUpsMesh = defaultBothPowerUpsMesh;
+        }
+        else if (PlayerPrefs.GetInt("Skin", 0) == 1)
+        {
+            _defaultMesh = mazeDefaultMesh;
+            _greenPowerUpMesh = mazeGreenPowerUpMesh;
+            _bluePowerUpMesh = mazeBluePowerUpMesh;
+            _bothPowerUpsMesh = mazeBothPowerUpsMesh;
+        }
+        else if (PlayerPrefs.GetInt("Skin", 0) == 2)
+        {
+            _defaultMesh = egyptDefaultMesh;
+            _greenPowerUpMesh = egyptGreenPowerUpMesh;
+            _bluePowerUpMesh = egyptBluePowerUpMesh;
+            _bothPowerUpsMesh = egyptBothPowerUpsMesh;
+        }
+    }
+    
     private IEnumerator BluePowerUp(Component powerUp)
     {
         Destroy(powerUp.gameObject);
@@ -86,7 +134,7 @@ public class PlayerCollision : MonoBehaviour
         {
             _hasBluePowerUp = true;
             
-            _meshFilter.mesh = hasGreenPowerUp == false ? bluePowerUpMesh : bothPowerUpsMesh;
+            _meshFilter.mesh = hasGreenPowerUp == false ? _bluePowerUpMesh : _bothPowerUpsMesh;
             _rigidbody.mass *= 10000f;
             var size = playerCollider.size;
             playerCollider.size = new Vector3(2f, size.y, size.z);
@@ -100,7 +148,7 @@ public class PlayerCollision : MonoBehaviour
             }
             yield return new WaitForSeconds(0.2f);
             
-            _meshFilter.mesh = hasGreenPowerUp == false ? defaultMesh : greenPowerUpMesh;
+            _meshFilter.mesh = hasGreenPowerUp == false ? _defaultMesh : _greenPowerUpMesh;
             _rigidbody.mass /= 1000f;
             playerCollider.size = new Vector3(1f, size.y, size.z);
             _invincible = false;
@@ -119,7 +167,7 @@ public class PlayerCollision : MonoBehaviour
         if (hasGreenPowerUp == false)
         {
             hasGreenPowerUp = true;
-            _meshFilter.mesh = _hasBluePowerUp == false ? greenPowerUpMesh : bothPowerUpsMesh;
+            _meshFilter.mesh = _hasBluePowerUp == false ? _greenPowerUpMesh : _bothPowerUpsMesh;
             Time.timeScale = 0.7f;
             
             _currentScoreGreen = _score;
@@ -131,7 +179,7 @@ public class PlayerCollision : MonoBehaviour
             yield return new WaitForSeconds(0.2f);
             
             hasGreenPowerUp = false;
-            _meshFilter.mesh = _hasBluePowerUp == false ? defaultMesh : bluePowerUpMesh;
+            _meshFilter.mesh = _hasBluePowerUp == false ? _defaultMesh : _bluePowerUpMesh;
             Time.timeScale = 1f;
         }
         else

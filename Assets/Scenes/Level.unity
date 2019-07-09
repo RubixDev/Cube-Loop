@@ -2823,14 +2823,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   manager: {fileID: 1267505828}
-  defaultMesh: {fileID: -2432090755550338912, guid: a117fb21c3877f342b159d923bc02ba3,
-    type: 3}
-  greenPowerUpMesh: {fileID: -2432090755550338912, guid: 42065810416e6f24ab64a7807466f153,
-    type: 3}
-  bluePowerUpMesh: {fileID: -2432090755550338912, guid: 2df024efed75baa45b79e10930aa81a6,
-    type: 3}
-  bothPowerUpsMesh: {fileID: -2432090755550338912, guid: 1454274f5b48baf489edd51079534e3f,
-    type: 3}
   playerModel: {fileID: 159343800}
   playerCollider: {fileID: 2045599258}
+  defaultDefaultMesh: {fileID: -2432090755550338912, guid: a117fb21c3877f342b159d923bc02ba3,
+    type: 3}
+  defaultGreenPowerUpMesh: {fileID: -2432090755550338912, guid: 42065810416e6f24ab64a7807466f153,
+    type: 3}
+  defaultBluePowerUpMesh: {fileID: -2432090755550338912, guid: 2df024efed75baa45b79e10930aa81a6,
+    type: 3}
+  defaultBothPowerUpsMesh: {fileID: -2432090755550338912, guid: 1454274f5b48baf489edd51079534e3f,
+    type: 3}
+  mazeDefaultMesh: {fileID: -2432090755550338912, guid: abe32e27bc250e445b46068b8b9757ef,
+    type: 3}
+  mazeGreenPowerUpMesh: {fileID: -2432090755550338912, guid: 3e6e8a72d46cb464688be90f24770fb8,
+    type: 3}
+  mazeBluePowerUpMesh: {fileID: -2432090755550338912, guid: 7fa82182c1287f047acd93cb58e1d2bb,
+    type: 3}
+  mazeBothPowerUpsMesh: {fileID: -2432090755550338912, guid: 7f330e244646c3b4fb4afe9db53959c4,
+    type: 3}
+  egyptDefaultMesh: {fileID: -2432090755550338912, guid: f4a9dffa22b92f5488299f4ba8d4cff4,
+    type: 3}
+  egyptGreenPowerUpMesh: {fileID: -2432090755550338912, guid: 6a05c88dba617f14e8d2dfef43a14ec2,
+    type: 3}
+  egyptBluePowerUpMesh: {fileID: -2432090755550338912, guid: 677c59bb614f1214090867ef8153f6e5,
+    type: 3}
+  egyptBothPowerUpsMesh: {fileID: -2432090755550338912, guid: 89c01c28a94dfe0418d2739069db1e30,
+    type: 3}
   hasGreenPowerUp: 0
